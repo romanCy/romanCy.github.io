@@ -346,12 +346,23 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/vue-学习心得/" >
+        <a class="abstract-title" href = "/2019/08/21/new的原理及手写实现/" >
             
-                <span>vue 学习心得</span>
+                <span>new的原理及手写实现</span>
         </a>
         <div class="abstract-content">
-            过滤器
+            new 的作用
+创建一个新对象
+
+把obj的proto指向Object的prototype 实现继承
+
+执行构造函数，传递参数，改变this指向
+
+最后赋值给变量
+
+
+手写实现
+1234567891011121314const _new = function()&#123;  const constructor = Array.prototype.shift.call(arguments);  // 创建一个新对象  const obj = new Object();  // 把obj的__proto__指向Object的prototype  obj.__proto__ = constr...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -362,7 +373,7 @@
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
     
 </div>
             

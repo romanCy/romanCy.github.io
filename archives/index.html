@@ -346,6 +346,46 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/21/new的原理及手写实现/" >
+            
+                <span>new的原理及手写实现</span>
+        </a>
+        <div class="abstract-content">
+            new 的作用
+创建一个新对象
+
+把obj的proto指向Object的prototype 实现继承
+
+执行构造函数，传递参数，改变this指向
+
+最后赋值给变量
+
+
+手写实现
+1234567891011121314const _new = function()&#123;  const constructor = Array.prototype.shift.call(arguments);  // 创建一个新对象  const obj = new Object();  // 把obj的__proto__指向Object的prototype  obj.__proto__ = constr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/21/vue-学习心得/" >
             
                 <span>vue 学习心得</span>
@@ -365,35 +405,6 @@
         <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/20/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-Mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/20</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -524,21 +535,12 @@ Mo...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/vue-学习心得/" >vue 学习心得</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/new的原理及手写实现/" >new的原理及手写实现</a>
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/08/20/hello-world/" >Hello World</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/vue-学习心得/" >vue 学习心得</a>
         </li>
     
     </div>
@@ -547,6 +549,8 @@ Mo...
     <div class="sidebar-tags-name">
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

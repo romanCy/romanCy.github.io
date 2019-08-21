@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>pdchen的博客</title>
+    <title>node.js+commander写一个命令行工具 · pdchen的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >PDChen Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">node.js+commander写一个命令行工具</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>PDChen Home</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            PDChen Home
-            <!-- 文章页  -->
+            node.js+commander写一个命令行工具
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,49 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                学无止境
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">309</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/21</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,310 +399,94 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/node-js-commander写一个命令行工具/" >
-            
-                <span>node.js+commander写一个命令行工具</span>
-        </a>
-        <div class="abstract-content">
-            node.js + commander 写一个命令行工具环境搭建安装node略
-初始化项目
-mkdir pdc-cli &amp;&amp; cd pdc-cli
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="node-js-commander-写一个命令行工具"><a href="#node-js-commander-写一个命令行工具" class="headerlink" title="node.js + commander 写一个命令行工具"></a>node.js + commander 写一个命令行工具</h3><h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><h5 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h5><p>略</p>
+<h5 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h5><blockquote>
+<p>mkdir pdc-cli &amp;&amp; cd pdc-cli</p>
+</blockquote>
+<blockquote>
+<p>npm init</p>
+</blockquote>
+<h5 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h5><blockquote>
+<p>npm i commander –save</p>
+</blockquote>
+<blockquote>
+<p>npm i chalk –save 颜色包</p>
+</blockquote>
+<blockquote>
+<p>npm i ora –save loading包</p>
+</blockquote>
+<blockquote>
+<p>npm i inquirer –save 与用户交互包</p>
+</blockquote>
+<blockquote>
+<p>npm i handlebars –save 模板渲染包</p>
+</blockquote>
+<blockquote>
+<p>npm i log-symbols –save 终端图标包</p>
+</blockquote>
+<h5 id="根目录新建index-js"><a href="#根目录新建index-js" class="headerlink" title="根目录新建index.js"></a>根目录新建index.js</h5><blockquote>
+<p>touch index.js</p>
+</blockquote>
+<h4 id="编写index-js"><a href="#编写index-js" class="headerlink" title="编写index.js"></a>编写index.js</h4><h5 id="usr-bin-env-node"><a href="#usr-bin-env-node" class="headerlink" title="#!/usr/bin/env node"></a>#!/usr/bin/env node</h5><p>在代码的开头第一行，必须指定我们的脚本执行所需要的解释程序。在这里，我们使用node来作为脚本的解释程序。而我们#! /usr/bin/env node这样写，目的是使用env来找到node，并使用node来作为程序的解释程序。</p>
+<h5 id="先写一个最简单的"><a href="#先写一个最简单的" class="headerlink" title="先写一个最简单的"></a>先写一个最简单的</h5><p>在index.js中编辑以下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">'inquirer'</span>);</span><br><span class="line"><span class="keyword">const</span> handlebars = <span class="built_in">require</span>(<span class="string">'handlebars'</span>);</span><br><span class="line"><span class="keyword">const</span> ora = <span class="built_in">require</span>(<span class="string">'ora'</span>);</span><br><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">'chalk'</span>);</span><br><span class="line"><span class="keyword">const</span> symbols = <span class="built_in">require</span>(<span class="string">'log-symbols'</span>);</span><br><span class="line"><span class="keyword">const</span> packageInfo = <span class="built_in">require</span>(<span class="string">'./package.json'</span>)</span><br><span class="line"></span><br><span class="line">program.version(<span class="string">`<span class="subst">$&#123;packageInfo.version&#125;</span>`</span>, <span class="string">'-v --version'</span>)</span><br><span class="line"></span><br><span class="line">program.parse(process.argv)</span><br></pre></td></tr></table></figure>
 
+<p>在package.json中配置命令名称及入口</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">  "pdc": "index.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-npm init
+<p>把包link到本地全局，在项目根目录执行</p>
+<blockquote>
+<p>npm link </p>
+</blockquote>
+<p>在命令行输入</p>
+<blockquote>
+<p>pdc -v 或者 pdc –version</p>
+</blockquote>
+<p>终端会显示package.json中的version字段的值</p>
 
-安装依赖包
-npm i commander –save
-
-
-npm i chalk –save 颜色包
-
-
-npm i ora –save loading包
-
-
-npm i inquirer –save 与用户交互包
-
-
-npm i handlebars –save 模板渲染包
-
-
-npm i log-symbols –save 终端图标包
-
-根目录新建index.js
-touch index.js
-
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/获取类型/" >
-            
-                <span>获取类型</span>
-        </a>
-        <div class="abstract-content">
-            能够准确获取类型如下
-1234567891011121314// typeoffunction type(obj) &#123;  return typeof obj !== "object" ? typeof obj : Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();&#125;console.log(type(1)) //numberconsole.log(type(true)) //booleanconsole.log(type('22')) //stringconsole.log(type([221,...
+        <div class="license-wrapper">
+            <p>Author：<a href="https://romancy.github.io">chenyu</a>
+            <p>原文链接：<a href="https://romancy.github.io/2019/08/21/node-js-commander写一个命令行工具/">https://romancy.github.io/2019/08/21/node-js-commander写一个命令行工具/</a>
+            <p>发表日期：<a href="https://romancy.github.io/2019/08/21/node-js-commander写一个命令行工具/">August 21st 2019, 2:23:45 pm</a>
+            <p>更新日期：<a href="https://romancy.github.io/2019/08/21/node-js-commander写一个命令行工具/">August 21st 2019, 3:12:14 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/日期格式化/" >
-            
-                <span>日期格式化</span>
-        </a>
-        <div class="abstract-content">
-            主要是正则进行文本替换
-上代码
-12345678910111213141516171819202122Date.prototype.format = function (format) &#123;  var o = &#123;    "M+": this.getMonth() + 1, //month    "d+": this.getDate(), //day    "h+": this.getHours(), //hour    "m+": this.getMinutes(), //minute    "s+": this.getSeconds(), //second    "q...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/instanceof的原理及手写实现/" >
-            
-                <span>instanceof的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            instanceof 的作用简单说，instanceof的主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。
-12345678910111213// A对象function A()&#123;&#125;// B对象继承A(组合继承)function B()&#123;  A.apply(this, arguments)&#125;B.prototype = Object.create(A.prototype)let b = new B()console.log(b instanceof A) // true
-
-手写实现
-123456789101112131...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/new的原理及手写实现/" >
-            
-                <span>new的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            new 的作用
-创建一个新对象
-
-把obj的proto指向Object的prototype 实现继承
-
-执行构造函数，传递参数，改变this指向
-
-最后赋值给变量
-
-
-手写实现
-1234567891011121314const _new = function()&#123;  const constructor = Array.prototype.shift.call(arguments);  // 创建一个新对象  const obj = new Object();  // 把obj的__proto__指向Object的prototype  obj.__proto__ = constr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/vue-学习心得/" >
-            
-                <span>vue 学习心得</span>
-        </a>
-        <div class="abstract-content">
-            过滤器
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/chen.jpeg >
-    <div class="profile-name">pdChen</div>
-    
-    <div class="profile-signature">
-        学无止境
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:yu824562457@qq.com" class="iconfont-archer email" title=email ></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/21/获取类型/" title= "获取类型">
+                    <div class="prevTitle">获取类型</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="//github.com/romanCy" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
     
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -730,6 +562,24 @@ touch index.js
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node-js-commander-写一个命令行工具"><span class="toc-number">1.</span> <span class="toc-text">node.js + commander 写一个命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境搭建"><span class="toc-number">1.1.</span> <span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装node"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装node</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#初始化项目"><span class="toc-number">1.1.2.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装依赖包"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装依赖包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#根目录新建index-js"><span class="toc-number">1.1.4.</span> <span class="toc-text">根目录新建index.js</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写index-js"><span class="toc-number">1.2.</span> <span class="toc-text">编写index.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#usr-bin-env-node"><span class="toc-number">1.2.1.</span> <span class="toc-text">#!/usr/bin/env node</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#先写一个最简单的"><span class="toc-number">1.2.2.</span> <span class="toc-text">先写一个最简单的</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -925,6 +775,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

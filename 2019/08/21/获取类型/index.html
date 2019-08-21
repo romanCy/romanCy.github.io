@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>new的原理及手写实现 · pdchen的博客</title>
+    <title>获取类型 · pdchen的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >PDChen Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">new的原理及手写实现</a>
+                <a href="#" class="post-name">获取类型</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            new的原理及手写实现
+            获取类型
             <!-- 404 -->
             
         </h1>
@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">144</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">74</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,29 +401,16 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h4><ol>
-<li><p>创建一个新对象</p>
-</li>
-<li><p>把obj的<strong>proto</strong>指向Object的prototype 实现继承</p>
-</li>
-<li><p>执行构造函数，传递参数，改变this指向</p>
-</li>
-<li><p>最后赋值给变量</p>
-</li>
-</ol>
-<p>手写实现</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _new = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">constructor</span> = Array.prototype.shift.call(arguments);</span><br><span class="line"></span><br><span class="line">  // 创建一个新对象</span><br><span class="line">  const obj = new Object();</span><br><span class="line"></span><br><span class="line">  // 把obj的__proto__指向Object的prototype</span><br><span class="line">  obj.__proto__ = <span class="keyword">constructor</span>.prototype;</span><br><span class="line"></span><br><span class="line">  // 执行构造函数，传递参数，改变this执行</span><br><span class="line">  <span class="keyword">constructor</span>.apply(obj, Array.prototype.slice.apply(arguments));</span><br><span class="line"></span><br><span class="line">  return obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用示例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = _new(Dog, <span class="string">'小狗'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(dog.name) <span class="comment">// 小狗</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.getName()) <span class="comment">// 小狗</span></span><br></pre></td></tr></table></figure>
+        <p>能够准确获取类型如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// typeof</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> obj !== <span class="string">"object"</span> ? <span class="keyword">typeof</span> obj : <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>).toLowerCase();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="number">1</span>)) <span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">true</span>)) <span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="string">'22'</span>)) <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(type([<span class="number">221</span>,<span class="number">2</span>])) <span class="comment">//array</span></span><br><span class="line"><span class="built_in">console</span>.log(type(&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;)) <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'22'</span>))) <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">null</span>)) <span class="comment">//null</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">undefined</span>)) <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="regexp">/sd/</span>)) <span class="comment">//regexp</span></span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>Author：<a href="https://romancy.github.io">chenyu</a>
-            <p>原文链接：<a href="https://romancy.github.io/2019/08/21/new的原理及手写实现/">https://romancy.github.io/2019/08/21/new的原理及手写实现/</a>
-            <p>发表日期：<a href="https://romancy.github.io/2019/08/21/new的原理及手写实现/">August 21st 2019, 1:00:09 pm</a>
-            <p>更新日期：<a href="https://romancy.github.io/2019/08/21/new的原理及手写实现/">August 21st 2019, 1:21:10 pm</a>
+            <p>原文链接：<a href="https://romancy.github.io/2019/08/21/获取类型/">https://romancy.github.io/2019/08/21/获取类型/</a>
+            <p>发表日期：<a href="https://romancy.github.io/2019/08/21/获取类型/">August 21st 2019, 2:05:58 pm</a>
+            <p>更新日期：<a href="https://romancy.github.io/2019/08/21/获取类型/">August 21st 2019, 2:06:58 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -431,17 +418,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/21/instanceof的原理及手写实现/" title= "instanceof的原理及手写实现">
-                    <div class="nextTitle">instanceof的原理及手写实现</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/08/21/vue-学习心得/" title= "vue 学习心得">
-                    <div class="prevTitle">vue 学习心得</div>
+                <a href= "/2019/08/21/日期格式化/" title= "日期格式化">
+                    <div class="prevTitle">日期格式化</div>
                 </a>
             
         </li>
@@ -553,7 +535,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-的作用"><span class="toc-number">1.</span> <span class="toc-text">new 的作用</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

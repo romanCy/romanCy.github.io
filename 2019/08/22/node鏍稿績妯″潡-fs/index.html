@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>日期格式化 · pdchen的博客</title>
+    <title>node核心模块--fs · pdchen的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >PDChen Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">日期格式化</a>
+                <a href="#" class="post-name">node核心模块--fs</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            日期格式化
+            node核心模块--fs
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">119</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">11</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/08/21</span>
+                    <span class="post-intro-time">2019/08/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,19 +401,15 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>主要是正则进行文本替换</p>
-<p>上代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.format = <span class="function"><span class="keyword">function</span> (<span class="params">format</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="string">"M+"</span>: <span class="keyword">this</span>.getMonth() + <span class="number">1</span>, <span class="comment">//month</span></span><br><span class="line">    <span class="string">"d+"</span>: <span class="keyword">this</span>.getDate(), <span class="comment">//day</span></span><br><span class="line">    <span class="string">"h+"</span>: <span class="keyword">this</span>.getHours(), <span class="comment">//hour</span></span><br><span class="line">    <span class="string">"m+"</span>: <span class="keyword">this</span>.getMinutes(), <span class="comment">//minute</span></span><br><span class="line">    <span class="string">"s+"</span>: <span class="keyword">this</span>.getSeconds(), <span class="comment">//second</span></span><br><span class="line">    <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">//quarter</span></span><br><span class="line">    <span class="string">"S"</span>: <span class="keyword">this</span>.getMilliseconds() <span class="comment">//millisecond</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(format)) format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>,</span><br><span class="line">    (<span class="keyword">this</span>.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o)</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(format))</span><br><span class="line">      format = format.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>,</span><br><span class="line">        <span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span> ? o[k] :</span><br><span class="line">        (<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length));</span><br><span class="line">  <span class="keyword">return</span> format;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>().format(<span class="string">'yyyy-MM-dd hh:mm:ss'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(time)</span><br></pre></td></tr></table></figure>
-
-
+        <h3 id="node核心模块–fs"><a href="#node核心模块–fs" class="headerlink" title="node核心模块–fs"></a>node核心模块–fs</h3><h4 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h4>
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>Author：<a href="https://romancy.github.io">chenyu</a>
-            <p>原文链接：<a href="https://romancy.github.io/2019/08/21/日期格式化/">https://romancy.github.io/2019/08/21/日期格式化/</a>
-            <p>发表日期：<a href="https://romancy.github.io/2019/08/21/日期格式化/">August 21st 2019, 2:00:22 pm</a>
-            <p>更新日期：<a href="https://romancy.github.io/2019/08/21/日期格式化/">August 21st 2019, 2:01:57 pm</a>
+            <p>原文链接：<a href="https://romancy.github.io/2019/08/22/node鏍稿績妯″潡-fs/">https://romancy.github.io/2019/08/22/node鏍稿績妯″潡-fs/</a>
+            <p>发表日期：<a href="https://romancy.github.io/2019/08/22/node鏍稿績妯″潡-fs/">August 22nd 2019, 11:28:31 am</a>
+            <p>更新日期：<a href="https://romancy.github.io/2019/08/22/node鏍稿績妯″潡-fs/">August 26th 2019, 10:23:14 am</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -422,16 +418,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/21/获取类型/" title= "获取类型">
-                    <div class="nextTitle">获取类型</div>
+                <a href= "/2019/09/06/Vue宸ョ▼鎼缓璇︾粏/" title= "Vue工程搭建详细">
+                    <div class="nextTitle">Vue工程搭建详细</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/08/21/instanceof的原理及手写实现/" title= "instanceof的原理及手写实现">
-                    <div class="prevTitle">instanceof的原理及手写实现</div>
+                <a href= "/2019/08/21/node-js-commander鍐欎竴涓懡浠よ宸ュ叿/" title= "node.js+commander写一个命令行工具">
+                    <div class="prevTitle">node.js+commander写一个命令行工具</div>
                 </a>
             
         </li>
@@ -543,7 +539,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node核心模块–fs"><span class="toc-number">1.</span> <span class="toc-text">node核心模块–fs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重命名文件"><span class="toc-number">1.1.</span> <span class="toc-text">重命名文件</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -679,35 +675,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 11
         </div>
         <!-- search  -->
         
@@ -723,67 +693,57 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie操作/" >cookie操作</a>
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2019/09/12/vue-以字符串形式渲染vue组件/" >vue 以字符串形式渲染vue组件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/动态生成a标签进行下载/" >动态生成a标签进行下载</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/鍔ㄦ€佺敓鎴恆鏍囩杩涜涓嬭浇/" >动态生成a标签进行下载</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/indexedDB基础操作/" >indexedDB基础操作</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/indexedDB鍩虹鎿嶄綔/" >indexedDB基础操作</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/写一个hash值/" >写一个hash值</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie鎿嶄綔/" >cookie操作</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/我理解的js异步编程/" >我理解的js异步编程</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/" >我理解的js异步编程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/Vue工程搭建详细/" >Vue工程搭建详细</a>
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/Vue宸ョ▼鎼缓璇︾粏/" >Vue工程搭建详细</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/node核心模块-fs/" >node核心模块--fs</a>
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/node鏍稿績妯″潡-fs/" >node核心模块--fs</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/如何发布一个npm包/" >如何发布一个npm包</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/node-js-commander鍐欎竴涓懡浠よ宸ュ叿/" >node.js+commander写一个命令行工具</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/获取类型/" >获取类型</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/鑾峰彇绫诲瀷/" >获取类型</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/日期格式化/" >日期格式化</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/new鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >new的原理及手写实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/node-js-commander写一个命令行工具/" >node.js+commander写一个命令行工具</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/new的原理及手写实现/" >new的原理及手写实现</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/instanceof的原理及手写实现/" >instanceof的原理及手写实现</a>
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2019/08/21/instanceof鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >instanceof的原理及手写实现</a>
         </li>
     
     </div>
@@ -791,13 +751,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="utils"><span class="iconfont-archer">&#xe606;</span>utils</span>
+        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

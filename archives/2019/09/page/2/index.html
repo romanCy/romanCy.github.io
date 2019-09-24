@@ -346,183 +346,48 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/22/node鏍稿績妯″潡-fs/" >
+        <a class="abstract-title" href = "/2019/09/06/Vue宸ョ▼鎼缓璇︾粏/" >
             
-                <span>node核心模块--fs</span>
+                <span>Vue工程搭建详细</span>
         </a>
         <div class="abstract-content">
-            node核心模块–fs重命名文件
+            Vue工程搭建详细以下是我开始做vue以来所遇到的一些问题及解决方法环境搭建安装vue脚手架
+
+npm i vue-cli -g
+
+检验是否安装成功执行命令
+
+vue -V
+
+
+用webpack模板搭建vue工程
+
+vue init webpack
+
+进入到项目里安装依赖并执行启动命令
+
+npm i &amp;&amp; npm run dev
+
+打开浏览器访问127.0.0.1：8080即可看到
+
+项目开发api封装在src目录下新建目录request，目录结构如下
+
+
+api 为所有api配置，如method，url
+config 为基础配置
+core 为所有核心api调用方法
+in...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/06</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/node-js-commander鍐欎竴涓懡浠よ宸ュ叿/" >
-            
-                <span>node.js+commander写一个命令行工具</span>
-        </a>
-        <div class="abstract-content">
-            node.js + commander 写一个命令行工具环境搭建安装node略
-初始化项目
-mkdir pdc-cli &amp;&amp; cd pdc-cli
-
-
-npm init
-
-安装依赖包
-npm i commander -S
-
-
-npm i chalk -S 颜色包
-
-
-npm i ora -S loading包
-
-
-npm i inquirer -S 与用户交互包
-
-
-npm i handlebars -S 模板渲染包
-
-
-npm i log-symbols -S 终端图标包
-
-根目录新建index.js
-touch index.js
-
-编写index.js#!/usr/b...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/鑾峰彇绫诲瀷/" >
-            
-                <span>获取类型</span>
-        </a>
-        <div class="abstract-content">
-            能够准确获取类型如下
-1234567891011121314// typeoffunction type(obj) &#123;  return typeof obj !== "object" ? typeof obj : Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();&#125;console.log(type(1)) //numberconsole.log(type(true)) //booleanconsole.log(type('22')) //stringconsole.log(type([221,...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/instanceof鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >
-            
-                <span>instanceof的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            instanceof 的作用简单说，instanceof的主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。
-12345678910111213// A对象function A()&#123;&#125;// B对象继承A(组合继承)function B()&#123;  A.apply(this, arguments)&#125;B.prototype = Object.create(A.prototype)let b = new B()console.log(b instanceof A) // true
-
-手写实现
-123456789101112131...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/new鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >
-            
-                <span>new的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            new 的作用
-创建一个新对象
-
-把obj的proto指向Object的prototype 实现继承
-
-执行构造函数，传递参数，改变this指向
-
-最后赋值给变量
-
-
-手写实现
-1234567891011121314const _new = function()&#123;  const constructor = Array.prototype.shift.call(arguments);  // 创建一个新对象  const obj = new Object();  // 把obj的__proto__指向Object的prototype  obj.__proto__ = constr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
     
 </div>
             
@@ -530,6 +395,10 @@ touch index.js
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2019/09/">&#60; PREV</a><a class="page-number" href="/archives/2019/09/">1</a><span class="page-number current">2</span>
+    </nav>
     
 </main>
             <!-- profile -->

@@ -78,6 +78,8 @@
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            PDChen Home
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                学无止境
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -359,183 +346,23 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/22/node鏍稿績妯″潡-fs/" >
+        <a class="abstract-title" href = "/2019/11/05/vue文字竖向轮播/" >
             
-                <span>node核心模块--fs</span>
+                <span>vue文字竖向轮播</span>
         </a>
         <div class="abstract-content">
-            node核心模块–fs重命名文件
+            80行简单文字轮播1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283&lt;template&gt;  &lt;div rel='newBroadCast'&gt;    &lt;div class="broad-content"&gt;      &lt;div id="prevEl" class="broad-prev" :...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/node-js-commander鍐欎竴涓懡浠よ宸ュ叿/" >
-            
-                <span>node.js+commander写一个命令行工具</span>
-        </a>
-        <div class="abstract-content">
-            node.js + commander 写一个命令行工具环境搭建安装node略
-初始化项目
-mkdir pdc-cli &amp;&amp; cd pdc-cli
-
-
-npm init
-
-安装依赖包
-npm i commander -S
-
-
-npm i chalk -S 颜色包
-
-
-npm i ora -S loading包
-
-
-npm i inquirer -S 与用户交互包
-
-
-npm i handlebars -S 模板渲染包
-
-
-npm i log-symbols -S 终端图标包
-
-根目录新建index.js
-touch index.js
-
-编写index.js#!/usr/b...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "node">node</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/鑾峰彇绫诲瀷/" >
-            
-                <span>获取类型</span>
-        </a>
-        <div class="abstract-content">
-            能够准确获取类型如下
-1234567891011121314// typeoffunction type(obj) &#123;  return typeof obj !== "object" ? typeof obj : Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();&#125;console.log(type(1)) //numberconsole.log(type(true)) //booleanconsole.log(type('22')) //stringconsole.log(type([221,...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/instanceof鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >
-            
-                <span>instanceof的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            instanceof 的作用简单说，instanceof的主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。
-12345678910111213// A对象function A()&#123;&#125;// B对象继承A(组合继承)function B()&#123;  A.apply(this, arguments)&#125;B.prototype = Object.create(A.prototype)let b = new B()console.log(b instanceof A) // true
-
-手写实现
-123456789101112131...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/21/new鐨勫師鐞嗗強鎵嬪啓瀹炵幇/" >
-            
-                <span>new的原理及手写实现</span>
-        </a>
-        <div class="abstract-content">
-            new 的作用
-创建一个新对象
-
-把obj的proto指向Object的prototype 实现继承
-
-执行构造函数，传递参数，改变this指向
-
-最后赋值给变量
-
-
-手写实现
-1234567891011121314const _new = function()&#123;  const constructor = Array.prototype.shift.call(arguments);  // 创建一个新对象  const obj = new Object();  // 把obj的__proto__指向Object的prototype  obj.__proto__ = constr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
     
 </div>
             
@@ -544,90 +371,8 @@ touch index.js
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/chen.jpeg >
-    <div class="profile-name">pdChen</div>
-    
-    <div class="profile-signature">
-        学无止境
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:yu824562457@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/romanCy" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">

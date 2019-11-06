@@ -346,6 +346,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/06/惰性函数/" >
+            
+                <span>惰性函数</span>
+        </a>
+        <div class="abstract-content">
+            惰性函数的作用与写法场景：定义一个getFirstTime方法，用来初始化第一次调用该方法时的时间
+利用全局变量12345678var t=null;function getFirstTime()&#123;  if(t===null)&#123;    t=new Date().getTime()    return t  &#125;  return t;&#125;
+
+缺点每次需要判断，并且污染全局变量
+利用闭包123456789101112function foo()&#123;  let t = null;  return function()&#123;    if(t===...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/05/vue文字竖向轮播/" >
             
                 <span>vue文字竖向轮播</span>
@@ -786,9 +819,34 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -801,6 +859,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/06</span><a class="archive-post-title" href= "/2019/11/06/惰性函数/" >惰性函数</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -854,17 +917,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/样式初始化reset-css/" >样式初始化reset.css</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/jq-extend源码/" >jq extend源码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/html反转义/" >html反转义</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/样式初始化reset-css/" >样式初始化reset.css</a>
         </li>
     
     
@@ -874,12 +932,17 @@
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/html反转义/" >html反转义</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2019/09/12/vue-以字符串形式渲染vue组件/" >vue 以字符串形式渲染vue组件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie鎿嶄綔/" >cookie操作</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/鍔ㄦ€佺敓鎴恆鏍囩杩涜涓嬭浇/" >动态生成a标签进行下载</a>
         </li>
     
     
@@ -889,7 +952,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/鍔ㄦ€佺敓鎴恆鏍囩杩涜涓嬭浇/" >动态生成a标签进行下载</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie鎿嶄綔/" >cookie操作</a>
         </li>
     
     
@@ -932,11 +995,11 @@
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
+    
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
-    
-        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
     
         <span class="sidebar-tag-name" data-tags="Html"><span class="iconfont-archer">&#xe606;</span>Html</span>
     

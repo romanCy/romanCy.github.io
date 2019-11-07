@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>pdchen的博客</title>
+    <title>Git操作熟悉 · pdchen的博客</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >PDChen Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Git操作熟悉</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>PDChen Home</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Git操作熟悉
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Git">Git</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">62</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/11/07</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,312 +399,69 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/06/理解promise/" >
-            
-                <span>理解promise</span>
-        </a>
-        <div class="abstract-content">
-            理解Promise解决回调地狱123456789101112131415function sendAjax(cb) &#123;  setTimeout(() =&gt; &#123;    cb(new Date().getTime())  &#125;, 1000)&#125;sendAjax((data1) =&gt; &#123;  console.log(data1)  sendAjax((data2) =&gt; &#123;    console.log(data2)    sendAjax((data3) =&gt; &#123;      console.log(dat...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/06/惰性函数/" >
-            
-                <span>惰性函数</span>
-        </a>
-        <div class="abstract-content">
-            惰性函数的作用与写法场景：定义一个getFirstTime方法，用来初始化第一次调用该方法时的时间
-利用全局变量12345678var t=null;function getFirstTime()&#123;  if(t===null)&#123;    t=new Date().getTime()    return t  &#125;  return t;&#125;
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="重命名本地分支"><a href="#重命名本地分支" class="headerlink" title="重命名本地分支"></a>重命名本地分支</h4><blockquote>
+<p>git branch -m currentName newName</p>
+</blockquote>
+<h4 id="缓存本地改变"><a href="#缓存本地改变" class="headerlink" title="缓存本地改变"></a>缓存本地改变</h4><blockquote>
+<p>git stash</p>
+</blockquote>
+<h4 id="把缓存取出来"><a href="#把缓存取出来" class="headerlink" title="把缓存取出来"></a>把缓存取出来</h4><blockquote>
+<p>git stash pop stash{0}</p>
+</blockquote>
+<h4 id="对比分支间的改变"><a href="#对比分支间的改变" class="headerlink" title="对比分支间的改变"></a>对比分支间的改变</h4><blockquote>
+<p>git diff branchName branchName</p>
+</blockquote>
+<h4 id="回滚到某个commit"><a href="#回滚到某个commit" class="headerlink" title="回滚到某个commit"></a>回滚到某个commit</h4><blockquote>
+<p>git log</p>
+</blockquote>
+<blockquote>
+<p>git reset –hard commitId</p>
+</blockquote>
+<h4 id="提交回滚"><a href="#提交回滚" class="headerlink" title="提交回滚"></a>提交回滚</h4><blockquote>
+<p>git push -force</p>
+</blockquote>
 
-缺点每次需要判断，并且污染全局变量
-利用闭包123456789101112function foo()&#123;  let t = null;  return function()&#123;    if(t===...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/24/前端跨域解析及解决/" >
-            
-                <span>前端跨域解析及解决</span>
-        </a>
-        <div class="abstract-content">
-            
+        <div class="license-wrapper">
+            <p>Author：<a href="https://romancy.github.io">chenyu</a>
+            <p>原文链接：<a href="https://romancy.github.io/2019/11/07/Git操作熟悉/">https://romancy.github.io/2019/11/07/Git操作熟悉/</a>
+            <p>发表日期：<a href="https://romancy.github.io/2019/11/07/Git操作熟悉/">November 7th 2019, 11:19:43 am</a>
+            <p>更新日期：<a href="https://romancy.github.io/2019/11/07/Git操作熟悉/">November 7th 2019, 11:28:09 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/22/监听页面滑动到底部/" >
-            
-                <span>监听页面滑动到底部</span>
-        </a>
-        <div class="abstract-content">
-            监听页面滑动到底部12345678910111213window.onscroll = function()&#123;  //变量scrollTop是滚动条滚动时，距离顶部的距离  var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;  //变量windowHeight是可视区的高度  var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;  //变量scrollHei...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/高性能列表渲染/" >
-            
-                <span>高性能列表渲染</span>
-        </a>
-        <div class="abstract-content">
-            1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;  &lt;head&gt;    &lt;meta charset="UTF-8" /&gt;    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;   ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/防抖和节流/" >
-            
-                <span>防抖和节流</span>
-        </a>
-        <div class="abstract-content">
-            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;  &lt;meta charset="UTF-8"&gt;  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;  &lt;meta http-equiv="X-UA...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/移动端刮刮卡简单实现/" >
-            
-                <span>移动端刮刮卡简单实现</span>
-        </a>
-        <div class="abstract-content">
-            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;  &lt;head&gt;    &lt;meta charset="UTF-8" /&gt;    &lt;meta n...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/jq-extend源码/" >
-            
-                <span>jq extend源码</span>
-        </a>
-        <div class="abstract-content">
-            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394/* eslint-disable */let class2type = (function () &#123;  let class2type = &#123;&#125;;  let arr = 'Boolean Number St...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/移动端rem处理-网易版/" >
-            
-                <span>移动端rem处理-网易版</span>
-        </a>
-        <div class="abstract-content">
-            在项目中添加
-12345678910111213141516171819202122(function (doc, win) &#123;  const docEl = doc.documentElement;  const isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);  const scale = 1;  const resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';  docEl.dataset....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/html反转义/" >
-            
-                <span>html反转义</span>
-        </a>
-        <div class="abstract-content">
-            原理: 先放到 div 容器里再取出来
-1234567const escape2Html = (str) =&gt; &#123;  let temp = document.createElement('div');  temp.innerHTML = str;  const output = temp.innerText || temp.textContent;  temp = null;  return output;&#125;
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/11/06/理解promise/" title= "理解promise">
+                    <div class="prevTitle">理解promise</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/tags/JavaScript/page/2/">2</a><a class="extend next" rel="next" href="/tags/JavaScript/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -721,6 +539,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#重命名本地分支"><span class="toc-number">1.</span> <span class="toc-text">重命名本地分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缓存本地改变"><span class="toc-number">2.</span> <span class="toc-text">缓存本地改变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#把缓存取出来"><span class="toc-number">3.</span> <span class="toc-text">把缓存取出来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对比分支间的改变"><span class="toc-number">4.</span> <span class="toc-text">对比分支间的改变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回滚到某个commit"><span class="toc-number">5.</span> <span class="toc-text">回滚到某个commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交回滚"><span class="toc-number">6.</span> <span class="toc-text">提交回滚</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1358,6 +1194,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

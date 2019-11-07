@@ -346,292 +346,44 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/06/理解promise/" >
+        <a class="abstract-title" href = "/2019/11/07/Git操作熟悉/" >
             
-                <span>理解promise</span>
+                <span>Git操作熟悉</span>
         </a>
         <div class="abstract-content">
-            理解Promise解决回调地狱123456789101112131415function sendAjax(cb) &#123;  setTimeout(() =&gt; &#123;    cb(new Date().getTime())  &#125;, 1000)&#125;sendAjax((data1) =&gt; &#123;  console.log(data1)  sendAjax((data2) =&gt; &#123;    console.log(data2)    sendAjax((data3) =&gt; &#123;      console.log(dat...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/06/惰性函数/" >
-            
-                <span>惰性函数</span>
-        </a>
-        <div class="abstract-content">
-            惰性函数的作用与写法场景：定义一个getFirstTime方法，用来初始化第一次调用该方法时的时间
-利用全局变量12345678var t=null;function getFirstTime()&#123;  if(t===null)&#123;    t=new Date().getTime()    return t  &#125;  return t;&#125;
+            重命名本地分支
+git branch -m currentName newName
 
-缺点每次需要判断，并且污染全局变量
-利用闭包123456789101112function foo()&#123;  let t = null;  return function()&#123;    if(t===...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/24/前端跨域解析及解决/" >
-            
-                <span>前端跨域解析及解决</span>
-        </a>
-        <div class="abstract-content">
-            
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/22/监听页面滑动到底部/" >
-            
-                <span>监听页面滑动到底部</span>
-        </a>
-        <div class="abstract-content">
-            监听页面滑动到底部12345678910111213window.onscroll = function()&#123;  //变量scrollTop是滚动条滚动时，距离顶部的距离  var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;  //变量windowHeight是可视区的高度  var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;  //变量scrollHei...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/高性能列表渲染/" >
-            
-                <span>高性能列表渲染</span>
-        </a>
-        <div class="abstract-content">
-            1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;  &lt;head&gt;    &lt;meta charset="UTF-8" /&gt;    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;   ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/防抖和节流/" >
-            
-                <span>防抖和节流</span>
-        </a>
-        <div class="abstract-content">
-            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;  &lt;meta charset="UTF-8"&gt;  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;  &lt;meta http-equiv="X-UA...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/29/移动端刮刮卡简单实现/" >
-            
-                <span>移动端刮刮卡简单实现</span>
-        </a>
-        <div class="abstract-content">
-            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;  &lt;head&gt;    &lt;meta charset="UTF-8" /&gt;    &lt;meta n...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/jq-extend源码/" >
-            
-                <span>jq extend源码</span>
-        </a>
-        <div class="abstract-content">
-            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394/* eslint-disable */let class2type = (function () &#123;  let class2type = &#123;&#125;;  let arr = 'Boolean Number St...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/移动端rem处理-网易版/" >
-            
-                <span>移动端rem处理-网易版</span>
-        </a>
-        <div class="abstract-content">
-            在项目中添加
-12345678910111213141516171819202122(function (doc, win) &#123;  const docEl = doc.documentElement;  const isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);  const scale = 1;  const resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';  docEl.dataset....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/24/html反转义/" >
-            
-                <span>html反转义</span>
-        </a>
-        <div class="abstract-content">
-            原理: 先放到 div 容器里再取出来
-1234567const escape2Html = (str) =&gt; &#123;  let temp = document.createElement('div');  temp.innerHTML = str;  const output = temp.innerText || temp.textContent;  temp = null;  return output;&#125;
+缓存本地改变
+git stash
+
+把缓存取出来
+git stash pop stash{0}
+
+对比分支间的改变
+git diff branchName branchName
+
+回滚到某个commit
+git log
+
+
+git reset –hard commitId
+
+提交回滚
+git push -force
 
 
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/07</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Git">Git</a>
     
 </div>
             
@@ -639,10 +391,6 @@
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/tags/JavaScript/page/2/">2</a><a class="extend next" rel="next" href="/tags/JavaScript/page/2/">NEXT &#62;</a>
-    </nav>
     
 </main>
             <!-- profile -->

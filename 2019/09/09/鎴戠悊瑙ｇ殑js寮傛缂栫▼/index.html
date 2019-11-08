@@ -410,12 +410,12 @@ height:50vh;
 <li>浏览器事件触发线程，当一个事件被触发时，该线程会把事件添加到待处理队列的队尾，等待js引擎的处理，这些事件可来自JavaScript引擎当前执行的代码块，setTimeOut, 也可以来自浏览器内核的其他线程如鼠标点击，AJAX异步请求等，但由于JS的单线程关系，所有这些事件都得排队等待JS引擎处理。</li>
 </ul>
 <h3 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h3><p><img src="https://user-gold-cdn.xitu.io/2017/8/25/6d57533be2e7e477803aadca1471e9e4?imageslim" alt></p>
-<p><strong>任务队列，也就是事件队列，分为 宏任务(macro-task) 和 微任务(micro-task)</strong></p>
+<p><strong>任务队列，也就是事件队列，分为 宏任务(macro-task) 和 微任务(micro-task)</strong>，典型的宏任务：<strong>setTimeout</strong>；典型的微任务:<strong>Promise</strong>。</p>
 <h4 id="循环机制如下"><a href="#循环机制如下" class="headerlink" title="循环机制如下"></a>循环机制如下</h4><ol>
 <li>先顺序从上向下执行当前全局上下文</li>
 <li>遇到异步事件就将其交给对应的浏览器模块</li>
 <li>浏览器的模块处理完之后，宏任务放入宏任务队列，微任务放入微任务队列</li>
-<li>当函数调用栈清空，开始执行任务队列，先执行微任务队列，执行完微任务队列再执行宏任务队列</li>
+<li>当函数调用栈清空，开始执行任务队列，先执行微任务队列，执行完微任务队列再执行宏任务队列(微任务是在一个宏任务执行完之后，下一个宏任务开始执行之前执行的)</li>
 <li>当执行任务队列时，可以认为重新开了一个空的宏任务队列和一个空的微任务队列，将新产生的异步任务最终放入新的任务队列，当前任务队列执行完成后，当前宏队列和微队列就清除，然后再去执行新的微任务队列，执行新的宏任务队列，新开微队列，新开宏队列，一直循环下去，直到任务队列全部为空。</li>
 </ol>
 <h2 id="异步的处理方法"><a href="#异步的处理方法" class="headerlink" title="异步的处理方法"></a>异步的处理方法</h2><h3 id="callback是最简单的，但不是最好的"><a href="#callback是最简单的，但不是最好的" class="headerlink" title="callback是最简单的，但不是最好的"></a>callback是最简单的，但不是最好的</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//callback的一般使用形式</span></span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  url:<span class="string">'www.pidanChen.com'</span></span><br><span class="line">  success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//延时处理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'timeout'</span>)</span><br><span class="line">  &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'timerErr'</span>+e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -428,9 +428,9 @@ height:50vh;
 <li>实例化一个Promise对象组要一个函数作为参数，该函数接受两个参数：resolve函数和reject函数；当实例化Promise构造函数时，将立即调用该函数，随后返回一个Promise对象。通常，实例化时，会初始一个异步任务，在异步任务完成或失败时，调用resolve或reject函数来完成或拒绝返回的Promise对象。另外需要注意的是，若传入的函数执行抛出异常，那么这个promsie将被拒绝。</li>
 </ul>
 <h4 id="解决控制反转的信任问题"><a href="#解决控制反转的信任问题" class="headerlink" title="解决控制反转的信任问题"></a>解决控制反转的信任问题</h4><ul>
-<li>Promise并没有取消控制反转，而是把反转出去的控制再反转一次，也就是<strong>反转了控制反转</strong>。</li>
-<li>它与普通的回调的方式的区别在于，普通的方式，回调成功之后的操作直接写在了回调函数里面，而这些操作的调用由第三方控制。在Promise的方式中，回调只负责成功之后的通知，而回调成功之后的操作放在了then的回调里面，由Promise精确控制。</li>
-<li>Promise有这些特征：只能决议一次，决议值只能有一个，决议之后无法改变。任何then中的回调也只会被调用一次。</li>
+<li><strong>Promise</strong>并没有取消控制反转，而是把反转出去的控制再反转一次，也就是<strong>反转了控制反转</strong>。</li>
+<li><strong>Promise</strong>与普通的回调的方式的区别在于，普通的方式，回调成功之后的操作直接写在了回调函数里面，而这些操作的调用由第三方控制。在Promise的方式中，回调只负责成功之后的通知，而回调成功之后的操作放在了then的回调里面，由Promise精确控制。</li>
+<li><strong>Promise</strong>有这些特征：只能决议一次，决议值只能有一个，决议之后无法改变。任何then中的回调也只会被调用一次。</li>
 </ul>
 <h4 id="解决调用过早"><a href="#解决调用过早" class="headerlink" title="解决调用过早"></a>解决调用过早</h4><p>Promise就根本不必担心这种问题即使是立即完成的Promise，也无法被同步观察到，即使这个Promise已经决议了，提供给then的回调总会是在js事件队列在当前完成后，再被调用，即异步调用。</p>
 <h4 id="解决回调过晚或没有调用"><a href="#解决回调过晚或没有调用" class="headerlink" title="解决回调过晚或没有调用"></a>解决回调过晚或没有调用</h4><p>Promise本身不会回调过晚，只要决议了，它就会按照规定运行。至于服务器或者网络的问题，并不是Promise能解决的，一般这种情况会使用Promise的竞态API Promise.race加一个超时的时间</p>
@@ -493,7 +493,7 @@ height:50vh;
             <p>Author：<a href="https://romancy.github.io">chenyu</a>
             <p>原文链接：<a href="https://romancy.github.io/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/">https://romancy.github.io/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/</a>
             <p>发表日期：<a href="https://romancy.github.io/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/">September 9th 2019, 10:22:20 am</a>
-            <p>更新日期：<a href="https://romancy.github.io/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/">November 7th 2019, 8:16:32 pm</a>
+            <p>更新日期：<a href="https://romancy.github.io/2019/09/09/鎴戠悊瑙ｇ殑js寮傛缂栫▼/">November 8th 2019, 6:59:19 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -994,6 +994,20 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 28
@@ -1072,6 +1086,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/jq-extend源码/" >jq extend源码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/移动端rem处理-网易版/" >移动端rem处理-网易版</a>
         </li>
     
@@ -1082,7 +1101,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/jq-extend源码/" >jq extend源码</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/处理文字溢出/" >处理文字溢出</a>
         </li>
     
     
@@ -1092,17 +1111,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2019/09/24/处理文字溢出/" >处理文字溢出</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2019/09/12/vue-以字符串形式渲染vue组件/" >vue 以字符串形式渲染vue组件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie鎿嶄綔/" >cookie操作</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/indexedDB鍩虹鎿嶄綔/" >indexedDB基础操作</a>
         </li>
     
     
@@ -1112,7 +1126,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/indexedDB鍩虹鎿嶄綔/" >indexedDB基础操作</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/cookie鎿嶄綔/" >cookie操作</a>
         </li>
     
     
@@ -1155,11 +1169,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
-    
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
